@@ -94,7 +94,7 @@ func Extractor(filePath *string, outputPath string, maxBuffer int) {
 		}
 	}
 
-	fmt.Println("Se han guardado todos los emails en el archivo all_emails.csv")
+	fmt.Println("All emails saved in ", allEmailsFile)
 
 	// Crear el archivo CSV de dominios inválidos
 	emailsDomainsCSVFile, err := os.Create(domainsFile)
@@ -115,5 +115,5 @@ func Extractor(filePath *string, outputPath string, maxBuffer int) {
 		}
 	}
 
-	fmt.Println("Se han guardado los dominios inválidos en el archivo ", domainsFile)
+	fmt.Println("Domains list saved in ", domainsFile)
 }
