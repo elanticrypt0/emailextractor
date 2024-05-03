@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func Extractor(filePath *string, outputPath string) {
+func Extractor(filePath *string, outputPath string, maxBuffer int) {
 
 	// Verificar si se proporcionó la ruta del archivo
 	if *filePath == "" {
@@ -46,7 +46,7 @@ func Extractor(filePath *string, outputPath string) {
 	scanner := bufio.NewScanner(file)
 
 	// Calcular el tamaño máximo del buffer en bytes (300 MB)
-	const maxBufferSize = 300 * 1024 * 1024
+	maxBufferSize := maxBuffer * 1024 * 1024
 
 	// Configurar el tamaño máximo del buffer del scanner
 	scanner.Buffer(make([]byte, maxBufferSize), maxBufferSize)

@@ -14,6 +14,14 @@ go run . -file [PATH_TO_FILE]
 go run . -file [PATH_TO_FILE] -o [PATH]
 ```
 
+## set buffer size
+
+Default 200 MB
+
+```go
+go run . -file [PATH_TO_FILE] -buffer [SIZE_IN_MB]
+```
+
 ## Delete duplicates
 
 ```go
