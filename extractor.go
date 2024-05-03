@@ -9,12 +9,20 @@ import (
 	"strings"
 )
 
-func Extractor(filePath *string) {
+func Extractor(filePath *string, outputPath string) {
 
 	// Verificar si se proporcionó la ruta del archivo
 	if *filePath == "" {
 		fmt.Println("Por favor, proporciona la ruta del archivo usando la bandera -file")
 		return
+	}
+
+	allEmailsFile := "all_emails.csv"
+	domainsFile := "email_domains.csv"
+
+	if outputPath != "" {
+		allEmailsFile = outputPath + "/" + allEmailsFile
+		domainsFile = outputPath + "/" + domainsFile
 	}
 
 	// Abrir el archivo de entrada
@@ -67,7 +75,8 @@ func Extractor(filePath *string) {
 	}
 
 	// Crear el archivo CSV de todos los emails
-	allEmailsCSVFile, err := os.Create("all_emails.csv")
+
+	allEmailsCSVFile, err := os.Create(allEmailsFile)
 	if err != nil {
 		fmt.Printf("Error al crear el archivo de resultados: %v\n", err)
 		return
@@ -88,7 +97,6 @@ func Extractor(filePath *string) {
 	fmt.Println("Se han guardado todos los emails en el archivo all_emails.csv")
 
 	// Crear el archivo CSV de dominios inválidos
-	domainsFile := "email_domains.csv"
 	emailsDomainsCSVFile, err := os.Create(domainsFile)
 	if err != nil {
 		fmt.Printf("Error al crear el archivo de resultados: %v\n", err)
