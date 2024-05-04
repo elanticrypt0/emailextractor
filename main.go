@@ -7,6 +7,8 @@ import (
 
 func main() {
 
+	AppBanner()
+
 	filePath := flag.String("file", "", "Path of the input file")
 	outputPath := flag.String("o", "", "Path of the output files")
 	maxBuffer := flag.Int("buffer", 200, "Buffer's size in MB")
